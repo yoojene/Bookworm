@@ -23,7 +23,6 @@ struct ContentView: View {
             List {
                 ForEach(books) { book in
                     NavigationLink {
-//                        Text(book.title ?? "unknown title")
                         DetailView(book: book)
                     } label : {
                         HStack {
@@ -39,21 +38,36 @@ struct ContentView: View {
                     }
                     
                 }
+                .onDelete(perform: deleteBooks)
             }
-                .navigationTitle("Bookworm")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            showingAddScreen.toggle()
-                        } label : {
-                            Label("Add Book", systemImage: "plus")
-                        }
+            .navigationTitle("Bookworm")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingAddScreen.toggle()
+                    } label : {
+                        Label("Add Book", systemImage: "plus")
                     }
                 }
-                .sheet(isPresented: $showingAddScreen) {
-                    AddBookView()
-                }
+            }
+            .sheet(isPresented: $showingAddScreen) {
+                AddBookView()
+            }
         }
+        
+    }
+    
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            let book = books[offset]
+            moc.delete(book)
+        }
+        
+//            try? moc.save()
     }
 }
 
