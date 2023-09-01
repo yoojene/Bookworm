@@ -15,7 +15,7 @@ struct AddBookView: View {
     @State private var title = ""
     @State private var author = ""
     @State private var rating = 3
-    @State private var genre = ""
+    @State private var genre = "Fantasy"
     @State private var review = ""
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
@@ -36,12 +36,6 @@ struct AddBookView: View {
                 
                 Section {
                     TextEditor(text: $review)
-                    
-//                    Picker("Rating", selection: $rating) {
-//                        ForEach(0..<6) {
-//                            Text(String($0))
-//                        }
-//                    }
                     RatingView(rating: $rating)
 
                     
@@ -65,9 +59,20 @@ struct AddBookView: View {
                         
                         dismiss()
                     }
+                    .disabled(isValidBook())
                 }
             }
         }
+    }
+    
+    func isValidBook() -> Bool {
+        if title.isEmpty || author.isEmpty || genre.isEmpty {
+            return true
+        }
+        
+        return false
+        
+        
     }
 }
 
