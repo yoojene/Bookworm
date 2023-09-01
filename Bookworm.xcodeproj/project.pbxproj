@@ -47,10 +47,7 @@
 		44B10BA42AA1DA3B008DC8A7 = {
 			isa = PBXGroup;
 			children = (
-				44B2CDDB2AA2009E00ECCE52 /* DetailView.swift */,
-				44B2CDD92AA1FD5A00ECCE52 /* EmojiRatingView.swift */,
 				44B2CDD22AA1EB7200ECCE52 /* Bookworm.xcdatamodeld */,
-				44B2CDD52AA1F0A500ECCE52 /* AddBookView.swift */,
 				44B2CDCC2AA1E50300ECCE52 /* DataController.swift */,
 				44B10BAF2AA1DA3B008DC8A7 /* Bookworm */,
 				44B10BAE2AA1DA3B008DC8A7 /* Products */,
@@ -70,7 +67,10 @@
 			children = (
 				44B10BB02AA1DA3B008DC8A7 /* BookwormApp.swift */,
 				44B10BB22AA1DA3B008DC8A7 /* ContentView.swift */,
+				44B2CDDB2AA2009E00ECCE52 /* DetailView.swift */,
 				44B2CDD72AA1F8DF00ECCE52 /* RatingView.swift */,
+				44B2CDD92AA1FD5A00ECCE52 /* EmojiRatingView.swift */,
+				44B2CDD52AA1F0A500ECCE52 /* AddBookView.swift */,
 				44B10BB42AA1DA3D008DC8A7 /* Assets.xcassets */,
 				44B10BB62AA1DA3D008DC8A7 /* Preview Content */,
 			);
