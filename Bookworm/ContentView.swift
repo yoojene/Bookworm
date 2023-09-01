@@ -17,7 +17,26 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            Text("Count: \(books.count)")
+            List {
+                ForEach(books) { book in
+                    NavigationLink {
+//                        Text(book.title ?? "unknown title")
+                        DetailView(book: book)
+                    } label : {
+                        HStack {
+                            EmojiRatingView(rating: book.rating)
+                                .font(.largeTitle)
+                        }
+                        VStack(alignment: .leading) {
+                            Text(book.title ?? "Unknown title")
+                                .font(.headline)
+                            Text(book.author ?? "Unknown author")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    
+                }
+            }
                 .navigationTitle("Bookworm")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
