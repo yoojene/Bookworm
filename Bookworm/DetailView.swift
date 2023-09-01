@@ -22,8 +22,8 @@ struct DetailView: View {
                 Image(book.genre ?? "Fantasy")
                     .resizable()
                     .scaledToFit()
-//                    .cornerRadius(15)
-//                    .padding()
+                    .cornerRadius(15)
+                    .padding()
                 
                 Text(book.genre?.uppercased() ?? "FANTASY")
                     .font(.caption)
@@ -32,7 +32,7 @@ struct DetailView: View {
                     .foregroundColor(.white)
                     .background(.black.opacity(0.75))
                     .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
+                    .offset(x: -25, y: -25)
                 
             }
             
