@@ -17,7 +17,7 @@ struct ContentView: View {
     
     @State private var showingAddScreen = false
 
-
+ 
     var body: some View {
         NavigationView {
             List {
@@ -32,8 +32,9 @@ struct ContentView: View {
                         VStack(alignment: .leading) {
                             Text(book.title ?? "Unknown title")
                                 .font(.headline)
+                                .foregroundColor(book.rating == 1 ? .red : nil)
                             Text(book.author ?? "Unknown author")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(book.rating == 1 ? .red : .secondary)
                         }
                     }
                     
